@@ -87,7 +87,7 @@ REACT_APP_FIREBASE_PROJECT_ID=your_project_id
 REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
 REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 REACT_APP_FIREBASE_APP_ID=your_app_id
-```
+REACT_APP_FIREBASE_MEASUREMENT_ID=your_measurement_id
 
 ### 4) Run Locally
 
@@ -95,16 +95,6 @@ REACT_APP_FIREBASE_APP_ID=your_app_id
 npm start
 # or
 yarn start
-```
-
----
-
-## 🧪 Available Scripts
-
-```bash
-npm start       # start dev server
-npm run build   # production build (minified, hashed)
-npm test        # run tests (if/when added)
 ```
 
 ---
@@ -127,12 +117,6 @@ npm test        # run tests (if/when added)
 
 ---
 
-## 🎨 Styling
-
-- **Styled Components** keep styles modular and scoped.
-- Shared theme tokens for consistent UI.
-
----
 
 ## 📦 Production Build & Deployment
 
