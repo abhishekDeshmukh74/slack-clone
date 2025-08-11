@@ -1,46 +1,161 @@
-# Getting Started with Create React App and Redux
+# Slack Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+A lightweight Slack-style chat app built with **React**, **Redux Toolkit**, **Styled Components**, and **Firebase (Auth + Firestore + Hooks)**. Real-time messaging across channels, Google sign-in, and a neat, responsive UI.
 
-## Available Scripts
+**Live Demo:** https://slack-clone-e5155.web.app/
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📸 Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![ Screenshot 1](https://github.com/abhishekDeshmukh74/slack-clone/blob/master/public/screenshot1.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![ Screenshot 2](https://github.com/abhishekDeshmukh74/slack-clone/blob/master/public/screenshot2.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✨ Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Google Authentication** with Firebase Auth (secure login/logout).
+- **Real-time messaging** powered by Firestore listeners (no refresh needed).
+- **Channel management** – create and browse channels to organize conversations.
+- **Redux Toolkit state** for predictable, testable UI state.
+- **Styled Components** for scoped, themeable styles.
+- **Responsive layout** that works nicely on desktop and mobile.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🧱 Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend:** React (CRA), Redux Toolkit, React Router (if present), Styled Components
+- **Backend-as-a-Service:** Firebase (Auth, Firestore, Hosting)
+- **Utilities:** Firebase Hooks (react-firebase-hooks), ESLint/Prettier (if configured)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📂 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+slack-clone/
+├─ public/
+├─ src/
+│  ├─ components/          # Reusable UI blocks (Sidebar, Chat, Header, etc.)
+│  ├─ features/            # Redux slices (e.g., app/user/channel slices)
+│  ├─ hooks/               # Custom hooks & firebase hooks usage
+│  ├─ pages/               # Route-level views (if routing used)
+│  ├─ services/            # Firebase config, API helpers
+│  ├─ styles/              # Global styles / theme
+│  └─ index.js             # App entry
+├─ .firebaserc
+├─ firebase.json
+├─ package.json
+└─ README.md
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1) Prerequisites
+
+- **Node.js** v16+ and **npm** or **yarn**
+- **Firebase project** (https://console.firebase.google.com)
+
+### 2) Clone & Install
+
+```bash
+git clone https://github.com/abhishekDeshmukh74/slack-clone.git
+cd slack-clone
+npm install
+# or
+yarn
+```
+
+### 3) Configure Firebase
+
+Create **Firestore** and **Authentication** (enable **Google** provider) in your Firebase project.
+
+Create a `.env` file at the project root with your Firebase config:
+
+```bash
+# .env
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
+```
+
+### 4) Run Locally
+
+```bash
+npm start
+# or
+yarn start
+```
+
+---
+
+## 🧪 Available Scripts
+
+```bash
+npm start       # start dev server
+npm run build   # production build (minified, hashed)
+npm test        # run tests (if/when added)
+```
+
+---
+
+## 🔐 Authentication Notes
+
+- Google sign-in via Firebase Auth.
+- Store the signed-in user in Redux state for easy access across components.
+- Protect routes or components by checking auth state.
+
+---
+
+## 💬 Messaging & Channels (Firestore)
+
+- **Collections**:
+  - `channels` → channel documents
+  - `channels/{channelId}/messages` → message documents
+- **Real-time updates**: use Firestore `onSnapshot` or Firebase Hooks.
+- **Ordering**: query messages by `timestamp` ascending.
+
+---
+
+## 🎨 Styling
+
+- **Styled Components** keep styles modular and scoped.
+- Shared theme tokens for consistent UI.
+
+---
+
+## 📦 Production Build & Deployment
+
+### Build
+
+```bash
+npm run build
+```
+
+### Deploy to Firebase Hosting
+
+1. Install CLI: `npm i -g firebase-tools`
+2. Login: `firebase login`
+3. Init Hosting: `firebase init hosting`
+4. Deploy: `firebase deploy`
+
+---
+
+## 🗺️ Roadmap
+
+- Threaded replies
+- Reactions / emoji picker
+- File uploads
+- Search
+- Message edit & delete
+- Typing indicators
